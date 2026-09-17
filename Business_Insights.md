@@ -54,13 +54,13 @@ All figures below are taken directly from the completed Power BI dashboard and E
 
 ---
 
-### 6. Corporate Customers Contribute Far More Than Regular Customers
+### 6. Regular Customers Contribute Far More Than Corporate Customers
 
-**Observation:** In the Customer Type breakdown, Corporate customers contribute roughly 73.8% of total sales (~₹83.1M), while Regular (individual) customers contribute only ~26.2% (~₹29.5M) — despite Corporate likely being a smaller customer count.
+**Observation:** In the Customer Type breakdown, Regular (individual) customers contribute roughly 73.7% of total sales (~₹83.1M), while Corporate customers contribute only ~26.3% (~₹29.5M).
 
-**Why it matters:** A small, high-value customer segment (Corporate/bulk buyers) is driving the majority of revenue. Losing even a few large Corporate accounts would hurt disproportionately.
+**Why it matters:** The business is a predominantly individual-consumer (B2C) retail operation, not a bulk/corporate-driven one. Revenue is broad-based across many individual customers rather than concentrated in a small number of large accounts.
 
-**Business action:** Prioritize retention efforts (dedicated account support, bulk discounts, loyalty terms) for Corporate customers, since they represent concentrated revenue risk and opportunity.
+**Business action:** Since revenue is broad-based rather than concentrated, focus retention and loyalty programs on the Regular customer segment (the majority revenue driver), while treating Corporate accounts as a smaller but still valuable secondary segment worth nurturing for growth.
 
 ---
 

@@ -80,7 +80,7 @@ Full definitions in `KPI_Definitions.md`.
 - **Apparel is the leading category** by both sales and quantity.
 - **Sales spike sharply from October–December** (festive season), flat the rest of the year.
 - **93.25% order completion rate**; returns and cancellations are within a healthy range.
-- **Corporate customers drive ~74% of revenue** despite likely being a smaller segment than Regular customers.
+- **Regular (individual) customers drive ~74% of revenue**, making the business predominantly B2C rather than bulk/corporate-driven.
 
 Full detail in `Business_Insights.md`.
 
@@ -90,7 +90,7 @@ Full detail in `Business_Insights.md`.
 - **Build a localized strategy for non-metro stores** rather than replicating the metro playbook.
 - **Prioritize inventory/marketing for Apparel, Electronics, and Footwear.**
 - **Plan staffing and stock ahead of the Q4 seasonal surge.**
-- **Strengthen retention for high-value Corporate accounts.**
+- **Strengthen retention for the core Regular (individual) customer base.**
 - **Grow order value from existing repeat customers** via cross-sell/bundling.
 
 Full detail in `Management_Recommendations.md`.

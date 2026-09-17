@@ -10,7 +10,7 @@ Based only on the actual findings in Business_Insights.md.
 
 4. **Plan inventory and staffing around the Q4 surge.** Since sales jump sharply from October and peak in November, build up stock and temporary staffing in September, rather than reacting once the surge has already started.
 
-5. **Prioritize Corporate account retention.** Corporate customers generate ~74% of revenue from what is likely a smaller customer count. Introduce dedicated relationship management or loyalty terms for top Corporate accounts to reduce concentration risk.
+5. **Prioritize Regular (individual) customer retention.** Regular customers generate ~74% of revenue, making them the core of the business. Invest loyalty programs and retention efforts here first, while still nurturing the smaller but valuable Corporate segment for growth.
 
 6. **Increase order value from existing repeat customers.** Since the repeat customer rate is already high (~96%), the highest-leverage growth lever is cross-sell/bundle offers to existing repeat customers rather than pure new-customer acquisition.
 
