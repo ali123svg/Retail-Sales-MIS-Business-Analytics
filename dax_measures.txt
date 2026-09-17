@@ -1,0 +1,149 @@
+=====================================================================
+RETAIL SALES MIS & BUSINESS ANALYTICS — DAX MEASURES
+=====================================================================
+Paste each measure into Power BI: Modeling > New Measure
+Table used: 'retail_mis fact_sales' (rename to match your actual table name if different)
+NOTE: "Profit Margin %" already exists — not repeated here.
+=====================================================================
+
+-- CORE MEASURES --
+
+Total Sales =
+SUM('retail_mis fact_sales'[Sales])
+
+Total Profit =
+SUM('retail_mis fact_sales'[Profit])
+
+Total Orders =
+DISTINCTCOUNT('retail_mis fact_sales'[Order_ID])
+
+Total Quantity =
+SUM('retail_mis fact_sales'[Quantity])
+
+Average Order Value =
+DIVIDE([Total Sales], [Total Orders], 0)
+
+
+-- TIME INTELLIGENCE --
+
+Previous Month Sales =
+CALCULATE(
+    [Total Sales],
+    DATEADD('DateTable'[Date], -1, MONTH)
+)
+
+MoM Sales % =
+DIVIDE(
+    [Total Sales] - [Previous Month Sales],
+    [Previous Month Sales],
+    0
+)
+
+
+-- CONTRIBUTION MEASURES --
+
+Sales Contribution % (Category) =
+DIVIDE(
+    [Total Sales],
+    CALCULATE([Total Sales], ALL('retail_mis dim_product'[Category])),
+    0
+)
+
+Sales Contribution % (Region) =
+DIVIDE(
+    [Total Sales],
+    CALCULATE([Total Sales], ALL('retail_mis dim_store'[Region])),
+    0
+)
+
+Sales Contribution % (Store) =
+DIVIDE(
+    [Total Sales],
+    CALCULATE([Total Sales], ALL('retail_mis dim_store'[Store_Name])),
+    0
+)
+
+
+-- RANKING MEASURES --
+
+Product Sales Rank =
+RANKX(
+    ALL('retail_mis dim_product'[Product_Name]),
+    [Total Sales],
+    ,
+    DESC
+)
+
+Store Sales Rank =
+RANKX(
+    ALL('retail_mis dim_store'[Store_Name]),
+    [Total Sales],
+    ,
+    DESC
+)
+
+
+-- CUSTOMER MEASURES --
+
+Total Customers =
+DISTINCTCOUNT('retail_mis fact_sales'[Customer_ID])
+
+Repeat Customers =
+COUNTROWS(
+    FILTER(
+        VALUES('retail_mis fact_sales'[Customer_ID]),
+        CALCULATE(DISTINCTCOUNT('retail_mis fact_sales'[Order_ID])) > 1
+    )
+)
+
+Average Revenue per Customer =
+DIVIDE([Total Sales], [Total Customers], 0)
+
+
+-- STORE / REGION METRICS --
+
+Store Profit Margin % =
+DIVIDE(
+    [Total Profit],
+    [Total Sales],
+    0
+)
+
+-- (Region and Store level use the same Total Sales / Total Profit measures
+--  sliced by the dim_store table's Region / Store_Name columns —
+--  no separate DAX needed, just drag Region or Store_Name onto the visual.)
+
+
+-- ORDER STATUS METRICS --
+
+Completed Orders =
+CALCULATE(
+    [Total Orders],
+    'retail_mis fact_sales'[Order_Status] = "Completed"
+)
+
+Returned Orders =
+CALCULATE(
+    [Total Orders],
+    'retail_mis fact_sales'[Order_Status] = "Returned"
+)
+
+Cancelled Orders =
+CALCULATE(
+    [Total Orders],
+    'retail_mis fact_sales'[Order_Status] = "Cancelled"
+)
+
+Return Rate % =
+DIVIDE([Returned Orders], [Total Orders], 0)
+
+
+=====================================================================
+NOTES:
+- Replace 'DateTable'[Date] with your actual DateTable column name if different.
+- Replace table names ('retail_mis fact_sales', 'retail_mis dim_product',
+  'retail_mis dim_store') with your exact table names shown in the
+  Power BI Data pane if they differ slightly.
+- Test each measure by dropping it into a Card visual before using it
+  in charts, to confirm the number matches your Excel/SQL totals.
+=====================================================================

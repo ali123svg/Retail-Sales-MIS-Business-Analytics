@@ -1,0 +1,91 @@
+=====================================================================
+VBA MACRO — "Generate Monthly MIS Report"
+=====================================================================
+HOW TO USE:
+1. Open Retail_Sales_MIS_Report.xlsx
+2. Press ALT + F11 to open the VBA editor
+3. Insert > Module
+4. Paste the code below
+5. Press F5 to run, or assign it to a button on your Monthly MIS sheet
+6. Save the file as .xlsm (macro-enabled workbook)
+=====================================================================
+
+Sub GenerateMonthlyMISReport()
+
+    Dim wsClean As Worksheet
+    Dim wsMonthly As Worksheet
+    Dim lastRow As Long
+    Dim reportMonth As String
+
+    ' Ask the user which month to generate the report for
+    reportMonth = InputBox("Enter the month to generate MIS report for (e.g. January):", "Generate Monthly MIS Report")
+
+    If reportMonth = "" Then
+        MsgBox "No month entered. Macro cancelled.", vbExclamation
+        Exit Sub
+    End If
+
+    Set wsClean = ThisWorkbook.Sheets("Clean Data")
+    Set wsMonthly = ThisWorkbook.Sheets("Monthly MIS")
+
+    ' Find last used row in Clean Data
+    lastRow = wsClean.Cells(wsClean.Rows.Count, "A").End(xlUp).Row
+
+    ' Clear previous output area on Monthly MIS (adjust range as per your sheet layout)
+    wsMonthly.Range("A5:F100").ClearContents
+
+    Dim i As Long
+    Dim outputRow As Long
+    outputRow = 5
+
+    Dim totalSales As Double
+    Dim totalProfit As Double
+    Dim totalQty As Long
+
+    ' Loop through Clean Data and pull rows matching the selected month
+    For i = 2 To lastRow
+        If wsClean.Cells(i, "AB").Value = reportMonth Then   ' Column AB = Month (adjust if your Month column is elsewhere)
+            wsMonthly.Cells(outputRow, "A").Value = wsClean.Cells(i, "A").Value   ' Order_ID
+            wsMonthly.Cells(outputRow, "B").Value = wsClean.Cells(i, "B").Value   ' Order_Date
+            wsMonthly.Cells(outputRow, "C").Value = wsClean.Cells(i, "P").Value   ' Product_Name
+            wsMonthly.Cells(outputRow, "D").Value = wsClean.Cells(i, "U").Value   ' Sales
+            wsMonthly.Cells(outputRow, "E").Value = wsClean.Cells(i, "W").Value   ' Profit
+
+            totalSales = totalSales + wsClean.Cells(i, "U").Value
+            totalProfit = totalProfit + wsClean.Cells(i, "W").Value
+            totalQty = totalQty + wsClean.Cells(i, "S").Value
+
+            outputRow = outputRow + 1
+        End If
+    Next i
+
+    ' Write summary totals at the top of the report
+    wsMonthly.Range("A1").Value = "Monthly MIS Report - " & reportMonth
+    wsMonthly.Range("A2").Value = "Total Sales:"
+    wsMonthly.Range("B2").Value = totalSales
+    wsMonthly.Range("A3").Value = "Total Profit:"
+    wsMonthly.Range("B3").Value = totalProfit
+    wsMonthly.Range("A4").Value = "Total Quantity:"
+    wsMonthly.Range("B4").Value = totalQty
+
+    MsgBox "Monthly MIS Report generated successfully for " & reportMonth & "!", vbInformation
+
+End Sub
+
+=====================================================================
+IMPORTANT — ADJUST BEFORE RUNNING:
+- Column letters (A, AB, P, U, W, S, etc.) are placeholders based on the
+  field order listed in your master prompt. Open your "Clean Data" sheet
+  and confirm the ACTUAL column letters for: Order_ID, Order_Date,
+  Product_Name, Quantity, Sales, Profit, Month — then update the code.
+- Sheet names must match exactly: "Clean Data" and "Monthly MIS".
+- This macro assumes your Monthly MIS sheet has a simple table layout
+  starting at row 5. Adjust if your layout differs.
+
+INTERVIEW EXPLANATION (as per your plan):
+"I used a simple VBA automation to reduce repetitive monthly MIS
+reporting steps. The macro takes a month as input, filters the cleaned
+transaction data for that month, populates the Monthly MIS sheet, and
+calculates the total sales, profit and quantity automatically instead
+of doing it manually every month."
+=====================================================================
