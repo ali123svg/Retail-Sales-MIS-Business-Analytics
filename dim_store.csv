@@ -1,0 +1,17 @@
+Store_ID,Store_Name,City,State,Region
+ST001,Mumbai Central,Mumbai,Maharashtra,West
+ST002,Pune FC Road,Pune,Maharashtra,West
+ST003,Ahmedabad CG Road,Ahmedabad,Gujarat,West
+ST004,Surat Ring Road,Surat,Gujarat,West
+ST005,Delhi South Ex,Delhi,Delhi,North
+ST006,Gurugram Sector 29,Gurugram,Haryana,North
+ST007,Jaipur MI Road,Jaipur,Rajasthan,North
+ST008,Lucknow Hazratganj,Lucknow,Uttar Pradesh,North
+ST009,Bengaluru Indiranagar,Bengaluru,Karnataka,South
+ST010,Chennai Anna Nagar,Chennai,Tamil Nadu,South
+ST011,Hyderabad Banjara Hills,Hyderabad,Telangana,South
+ST012,Kochi MG Road,Kochi,Kerala,South
+ST013,Kolkata Park Street,Kolkata,West Bengal,East
+ST014,Bhubaneswar Patia,Bhubaneswar,Odisha,East
+ST015,Patna Fraser Road,Patna,Bihar,East
+ST016,Ranchi Main Road,Ranchi,Jharkhand,East

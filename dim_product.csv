@@ -1,0 +1,21 @@
+Product_ID,Product_Name,Category,Sub_Category,Unit_Price,Unit_Cost
+P001,Premium T-Shirt,Apparel,Men,899,520.0
+P002,Casual Shirt,Apparel,Men,1299,760.0
+P003,Denim Jeans,Apparel,Men,1999,1180.0
+P004,Women Kurti,Apparel,Women,1199,690.0
+P005,Women Handbag,Accessories,Women,1799,980.0
+P006,Leather Wallet,Accessories,Men,799,420.0
+P007,Running Shoes,Footwear,Sports,2499,1500.0
+P008,Casual Sneakers,Footwear,Unisex,2199,1300.0
+P009,Kids Sandals,Footwear,Kids,999,560.0
+P010,Bluetooth Speaker,Electronics,Audio,1599,920.0
+P011,Wireless Earbuds,Electronics,Audio,2299,1360.0
+P012,Smart Watch,Electronics,Wearables,3499,2130.0
+P013,Yoga Mat,Sports & Fitness,Fitness,699,360.0
+P014,Fitness Band,Sports & Fitness,Fitness,1899,1120.0
+P015,Water Bottle,Home & Lifestyle,Lifestyle,499,220.0
+P016,Backpack,Bags,Unisex,1499,820.0
+P017,Travel Trolley,Bags,Unisex,3999,2450.0
+P018,Sunglasses,Accessories,Unisex,999,520.0
+P019,Table Lamp,Home & Lifestyle,Home,1299,710.0
+P020,Cushion Set,Home & Lifestyle,Home,799,410.0
